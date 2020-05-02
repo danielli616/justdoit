@@ -1,32 +1,30 @@
 class Solution
 {
 public:
-    vector<int> findDisappearedNumbers(vector<int> &D)
+    vector<int> findDisappearedNumbers(vector<int> &nums)
     {
+        vector<int> res;
+        int temp = 0;
 
-        vector<int> re;
-
-        int len = D.size();
-        bool ismember = false;
-
-        for (unsigned i = 1; i < len + 1; i++)
+        for (int i = 0; i < nums.size(); i++)
         {
-            ismember = false;
-            for (unsigned j = 0; j < D.size(); j++)
-            {
 
-                if (D.at(j) == i)
-                {
-                    D.erase(D.begin() + j);
-                    ismember = true;
-                }
-            }
-            if (!ismember)
+            if (nums[i] != i + 1)
             {
-                re.push_back(i);
+                temp = nums[i];
+
+                nums[i] = nums[temp - 1];
+
+                nums[temp - 1] = temp;
             }
         }
 
-        return re;
+        for (int i = 0; i < nums.size(); i++)
+        {
+            if (nums[i] != i + 1)
+                res.push_back(i + 1);
+        }
+
+        return res;
     }
 };
