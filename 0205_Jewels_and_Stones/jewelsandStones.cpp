@@ -13,18 +13,10 @@ public:
 
         for (char h : S)
         {
-            auto res = my_set.insert(h);
-
-            if (res.second)
-            {
-                my_set.erase(h);
-            }
-            else
-            {
+            if (my_set.count(h) != 0)
                 cout++;
-            }
         }
-
+        
         return cout;
     }
 };
