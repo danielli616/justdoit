@@ -14,20 +14,22 @@ class Solution(object):
         while True: 
             if temp[first] + temp[last] < target: 
                 first += 1
-                print(first)
             elif temp[first] + temp[last] > target:
                 last -= 1
             else:
                 break
-        
+                
         re = []
         i = 0
         while True:
+            print(nums[i])
             if nums[i] == temp[first] or nums[i] == temp[last]: 
                 re.append(i)
-                i += 1 
             if len(re) == 2:
                 break
+            i += 1 
     
-        return re       
+        return re
+        
+        
         
