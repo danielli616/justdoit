@@ -5,29 +5,25 @@ class Solution(object):
         :type target: int
         :rtype: List[int]
         """
-        temp = nums[:]
-        temp.sort()
+        temp = sorted(nums)
         first = 0
-        length = len(nums)
-        last = length - 1
+        last = len(nums) - 1
         
-        while True: 
+        while first < last: 
             if temp[first] + temp[last] < target: 
                 first += 1
             elif temp[first] + temp[last] > target:
                 last -= 1
-            else:
+            else: 
                 break
                 
         re = []
-        i = 0
-        while True:
+        for i in range(len(nums)):
             print(nums[i])
             if nums[i] == temp[first] or nums[i] == temp[last]: 
                 re.append(i)
             if len(re) == 2:
                 break
-            i += 1 
     
         return re
         
