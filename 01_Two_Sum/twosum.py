@@ -1,4 +1,5 @@
 class Solution(object):
+<<<<<<< HEAD
     def twoSum(self, nums, target):
         """
         :type nums: List[int]
@@ -29,3 +30,19 @@ class Solution(object):
         
         
         
+=======
+  def twoSum(self, nums, target):
+    temp = sorted(nums)
+    first = 0
+    last = len(nums) - 1
+
+    while first < last: 
+      if temp[first] + temp[last] < target: 
+        first += 1
+      elif temp[first] + temp[last] > target:
+        last -= 1
+      else: 
+        break
+
+    return [nums.index(temp[first]), nums.index(temp[last])]
+>>>>>>> 93b416bac9f7e25825869cb89613ad0f44a02cc4
