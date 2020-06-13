@@ -7,20 +7,34 @@ class Solution(object):
         if not prices: 
             return 0
         
-        dp = []
-        ans = 0
+        dp = [0] * len(prices)
         min_price = prices[0]
-        dp.append(0)
-
 
         for i in range(1, len(prices)):
             if (prices[i] < min_price):
                 min_price = prices[i]
-                dp.append(dp[i-1])
+                dp[i] = dp[i-1]
             else:
-                dp.append(max(dp[i-1], prices[i] - min_price))
-            ans = max(dp[i], ans)
-        
-        return ans;
+                dp[i] = max(prices[i] - min_price, dp[i-1])
+
+        return dp[-1];
+
+# Another solution to make it more concise
+class Solution:
+  if not prices:
+    return 0
+
+  max_profit = 0
+  min_price = prices[0]
+
+  for p in prices:
+    if p < min_price:
+      min_price = p
+    elif p - min_price > max_profit:
+      max_profit = p - min_price
+
+  return max_profit
+
+
         
         
