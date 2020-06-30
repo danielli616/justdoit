@@ -11,26 +11,10 @@ class Solution(object):
         :type sum: int
         :rtype: bool
         """
-        ans = [False]
-        
-        self.dfs(root, [], sum, ans)
-        
-        return ans[0]
-    
-    
-    def dfs(self, root, path, target, ans):
-    
         if not root:
-            return
-        
-        path.append(root.val)
-        
-        if not root.left and not root.right:
-            if not target - root.val:
-                ans[0] = True
-        
-        self.dfs(root.left, path, target - root.val, ans)
-        self.dfs(root.right, path, target - root.val, ans)
+            return False
 
-        path.pop()
-        
+        if not root.left and not root.right and not sum - root.val:
+              return True
+        else:
+          return self.hasPathSum(root.left, target - root.val) or self.hasPathSum(root.right, target - root.val) 
