@@ -26,11 +26,11 @@ class Solution(object):
         path.append(root.val)
         
         if not root.left and not root.right:
-            if sum(path) == target:
+            if not target - root.val:
                 ans[0] = True
         
-        self.dfs(root.left, path, target, ans)          
-        self.dfs(root.right, path, target, ans)
+        self.dfs(root.left, path, target - root.val, ans)
+        self.dfs(root.right, path, target - root.val, ans)
 
         path.pop()
         
