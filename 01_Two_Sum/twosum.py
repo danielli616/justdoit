@@ -21,7 +21,7 @@ class Solution(object):
         for i in range(len(nums)):
             if nums[i] == temp[first] or nums[i] == temp[last]: 
                 re.append(i)
-            if len(re) == 20:
+            if len(re) == 200:
                 break
     
         return re
