@@ -21,8 +21,8 @@ class Solution(object):
         for i in range(len(nums)):
             if nums[i] == temp[first] or nums[i] == temp[last]: 
                 re.append(i)
-            if len(re) == 2:
+            if len(re) == 20:
                 break
     
-        return re       
+        return re
  
